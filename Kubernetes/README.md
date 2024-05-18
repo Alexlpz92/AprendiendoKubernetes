@@ -126,6 +126,69 @@ spec:
       app: my-app
 ```
 
+## Services
+### NodePort
+***
+Es el objeto encargado de la alta disponibilidad
+
+Rollout: cuando se lanza un deployment se crea una revisión de lo nuevo y antiguo
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008
+  selector:
+    app: my-app
+```
+### ClusterIP
+***
+Es el objeto encargado de la alta disponibilidad
+
+Rollout: cuando se lanza un deployment se crea una revisión de lo nuevo y antiguo
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: my-app
+```
+
+### Load Balancer
+***
+Es el objeto encargado de la alta disponibilidad
+
+Rollout: cuando se lanza un deployment se crea una revisión de lo nuevo y antiguo
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008
+```
+
 ## Comandos
 ***
 
